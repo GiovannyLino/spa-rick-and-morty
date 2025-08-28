@@ -1,0 +1,76 @@
+<div class="profile-container">
+
+  <div class="profile-panel">
+    <div *ngIf="!isEditingInfo">
+      <div class="panel-header">
+        <h3>Informações Pessoais</h3>
+        <button (click)="toggleEditInfo()">Editar</button>
+      </div>
+      <div class="personal-info">
+        <img [src]="profileData.avatarUrl" alt="Foto do Perfil" class="profile-avatar">
+        <div>
+          <h2>{{ profileData.name }}</h2>
+          <p>{{ profileData.age }}</p>
+          <div class="social-links">
+            <a [href]="profileData.githubUrl" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a [href]="profileData.linkedinUrl" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isEditingInfo">
+      <div class="panel-header"><h3>Editando Informações</h3></div>
+      <div class="edit-form">
+        <div class="form-group"><label for="name">Nome Completo</label><input type="text" id="name" [(ngModel)]="editableProfileData.name"></div>
+        <div class="form-group"><label for="age">Idade</label><input type="text" id="age" [(ngModel)]="editableProfileData.age"></div>
+        <div class="form-group"><label for="avatar">Foto de Perfil</label><input type="file" id="avatar" (change)="onFileSelected($event)"></div>
+        <div class="form-actions"><button (click)="saveInfo()" class="primary">Salvar</button><button (click)="toggleEditInfo()">Cancelar</button></div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <div *ngIf="!isEditingAbout">
+        <div class="panel-header"><h3>Sobre</h3><button (click)="toggleEditAbout()">Editar</button></div>
+        <p>{{ profileData.about }}</p>
+      </div>
+      <div *ngIf="isEditingAbout">
+        <div class="panel-header"><h3>Editando "Sobre"</h3></div>
+        <div class="edit-form"><textarea rows="5" [(ngModel)]="editableProfileData.about"></textarea>
+           <div class="form-actions"><button (click)="saveAbout()" class="primary">Salvar</button><button (click)="toggleEditAbout()">Cancelar</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-container">
+    <div class="panel-header"><h2>Formação</h2><button (click)="addEducation()">Adicionar</button></div>
+    <div class="cards-grid">
+      <div class="info-card" *ngFor="let edu of educationData; let i = index">
+        <div *ngIf="editingEducationIndex !== i">
+          <div class="card-header"><h4>{{ edu.course }}</h4><div class="card-actions"><button (click)="editEducation(i)">Editar</button><button (click)="deleteEducation(i)" class="danger">Excluir</button></div></div>
+          <p>{{ edu.institution }}</p><span>{{ edu.period }} | {{ edu.status }}</span>
+        </div>
+        <div *ngIf="editingEducationIndex === i" class="edit-form-card">
+          <input type="text" placeholder="Nome do Curso" [(ngModel)]="editableEducationItem.course"><input type="text" placeholder="Nome da Instituição" [(ngModel)]="editableEducationItem.institution"><input type="text" placeholder="Período" [(ngModel)]="editableEducationItem.period"><input type="text" placeholder="Status" [(ngModel)]="editableEducationItem.status">
+          <div class="form-actions"><button (click)="saveEducation(i)" class="primary">Salvar</button><button (click)="cancelEditEducation()">Cancelar</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-container">
+    <div class="panel-header"><h2>Experiência Profissional</h2><button (click)="addExperience()">Adicionar</button></div>
+    <div class="cards-grid">
+      <div class="info-card" *ngFor="let exp of experienceData; let i = index">
+        <div *ngIf="editingExperienceIndex !== i">
+          <div class="card-header"><h4>{{ exp.company }}</h4><div class="card-actions"><button (click)="editExperience(i)">Editar</button><button (click)="deleteExperience(i)" class="danger">Excluir</button></div></div>
+          <p><strong>{{ exp.role }}</strong></p><span>{{ exp.period }}</span><p class="description">{{ exp.description }}</p>
+        </div>
+        <div *ngIf="editingExperienceIndex === i" class="edit-form-card">
+          <input type="text" placeholder="Nome da Empresa" [(ngModel)]="editableExperienceItem.company"><input type="text" placeholder="Cargo" [(ngModel)]="editableExperienceItem.role"><input type="text" placeholder="Período" [(ngModel)]="editableExperienceItem.period"><textarea placeholder="Descrição" rows="3" [(ngModel)]="editableExperienceItem.description"></textarea>
+          <div class="form-actions"><button (click)="saveExperience(i)" class="primary">Salvar</button><button (click)="cancelEditExperience()">Cancelar</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

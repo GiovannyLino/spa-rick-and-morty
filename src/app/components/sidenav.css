@@ -1,0 +1,77 @@
+:host {
+  --sidenav-width-figma: 70px;
+}
+
+.sidenav-container-figma {
+  width: var(--sidenav-width-figma);
+  height: 100%;
+  background-color: #ffffff;
+  border-right: 1px solid #DEE2E6;
+  display: flex;
+  flex-direction: column; /* Organiza os 3 blocos (menu, nav, perfil) em uma coluna */
+  align-items: center;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  color: #495057;
+  height: 50px; /* Define uma altura para o bloco do topo */
+  display: flex;
+  align-items: center;
+}
+
+/* --- A MÁGICA DA CENTRALIZAÇÃO ACONTECE AQUI --- */
+.main-nav-figma {
+  flex-grow: 1; /* Faz este container ocupar todo o espaço vertical livre */
+  width: 100%;
+  display: flex; /* Habilita flexbox para o container da navegação */
+  justify-content: center; /* Centraliza a lista <ul> na vertical */
+  align-items: center; /* Centraliza a lista <ul> na horizontal */
+}
+
+.main-nav-figma ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Ícones empilhados verticalmente */
+  align-items: center; /* Ícones centralizados horizontalmente */
+}
+/* --- FIM DO AJUSTE DE CENTRALIZAÇÃO --- */
+
+.main-nav-figma li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  margin: 0.75rem 0; /* Espaçamento vertical entre os ícones */
+  font-size: 1.5rem;
+  color: #6C757D;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.main-nav-figma li a:hover {
+  color: #0075FF;
+}
+
+.main-nav-figma li a.active-link-figma {
+  background-color: #0075FF;
+  color: #ffffff;
+}
+
+.user-profile-figma {
+  font-size: 2rem;
+  height: 50px; /* Define uma altura para o bloco de baixo */
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-figma a {
+  color: #6C757D;
+}

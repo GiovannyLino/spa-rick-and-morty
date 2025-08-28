@@ -1,0 +1,167 @@
+/* Container principal do Dashboard */
+.page-container {
+  /* Gradiente de fundo */
+  background: linear-gradient(135deg, #e0f2f7 0%, #d1e7ed 100%); 
+  min-height: calc(100vh - 60px); /* Ajuste conforme a altura do seu header/footer se tiver */
+  padding: 2rem;
+  border-radius: 15px; /* Cantos levemente arredondados */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais destacada */
+  margin: 1.5rem; /* Margem para "flutuar" na página */
+  animation: fadeInBackground 1s ease-out; /* Animação ao carregar */
+}
+
+@keyframes fadeInBackground {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Garanta que o h1 esteja visível contra o fundo */
+.page-container h1 {
+  color: #2c3e50; /* Cor mais escura para contraste */
+  font-size: 2.5rem; /* Título maior */
+  font-weight: 700;
+  margin-bottom: 2.5rem; /* Mais espaço abaixo do título */
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil no texto */
+}
+
+/* Opcional: Adicionar um padrão sutil */
+.page-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239e9e9e' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zm1 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+  pointer-events: none; /* Garante que não interfere com cliques */
+  border-radius: 15px;
+}
+
+.carousel-container {
+  padding: 2rem 0; /* Mais padding vertical */
+  margin: 0 3rem; /* Mais margem lateral para as setas da Swiper */
+}
+
+/* Estilização para as setas de navegação da Swiper */
+:host ::ng-deep .swiper-button-next,
+:host ::ng-deep .swiper-button-prev {
+  color: #0075FF !important; /* Cor vibrante para as setas */
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2)); /* Sombra para destacar */
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+
+:host ::ng-deep .swiper-button-next:hover,
+:host ::ng-deep .swiper-button-prev:hover {
+  opacity: 1; /* Aumenta opacidade ao passar o mouse */
+}
+
+/* Estilização para a paginação (os pontinhos) */
+:host ::ng-deep .swiper-pagination-bullet {
+  background-color: #9e9e9e !important; /* Cor mais discreta */
+  opacity: 0.7;
+}
+
+:host ::ng-deep .swiper-pagination-bullet-active {
+  background-color: #0075FF !important; /* Cor vibrante para o ativo */
+  opacity: 1;
+}
+
+/* Reutilizando e aprimorando o estilo do card */
+.card {
+  background-color: #ffffff;
+  border-radius: 15px; /* Cantos mais arredondados */
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra mais proeminente */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 2rem;
+  position: relative; /* Para o efeito de brilho */
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02); /* Flutua e cresce um pouco */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+}
+
+/* Efeito de brilho no hover */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--x) var(--y), rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; /* Garante que não interfere com cliques */
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* Para o brilho seguir o mouse (requer JavaScript no componente) */
+/* Adicione no seu dashboard.ts */
+/*
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(e: MouseEvent) {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within the element
+      const y = e.clientY - rect.top;  // y position within the element
+      card.style.setProperty('--x', x + 'px');
+      card.style.setProperty('--y', y + 'px');
+    });
+  }
+*/
+
+
+.card img {
+  width: 100%;
+  height: 200px; /* Altura fixa para as imagens */
+  object-fit: cover; /* Garante que a imagem preencha o espaço */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.card-content {
+  padding: 1.2rem;
+  background-color: #fcfcfc; /* Fundo ligeiramente diferente para o conteúdo */
+}
+
+.card-content h3 {
+  font-size: 1.3rem; /* Título do card maior */
+  font-weight: 600;
+  color: #34495e;
+  margin: 0 0 0.6rem 0;
+}
+
+.card-content p {
+  font-size: 1rem; /* Texto do card maior */
+  color: #7f8c8d;
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Borda sutil */
+}
+
+.status-indicator.alive { background-color: #2ecc71; }
+.status-indicator.dead { background-color: #e74c3c; }
+.status-indicator.unknown { background-color: #95a5a6; }
+
+.loading-indicator {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.3rem;
+  color: #718096;
+}

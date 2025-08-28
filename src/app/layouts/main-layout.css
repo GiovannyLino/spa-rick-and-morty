@@ -1,0 +1,40 @@
+.main-dashboard {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  /* A linha abaixo é a mudança principal */
+  grid-template-rows: auto; /* A altura da linha será definida pelo conteúdo */
+  grid-template-areas:
+    "sidenav content"; /* O header não faz mais parte do grid */
+  padding-top: 70px; /* Espaço para o header fixo */
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.sidenav-panel {
+  grid-area: sidenav;
+  position: fixed;
+  top: 70px; /* Começa abaixo do header */
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.content-panel {
+  grid-area: content;
+  overflow-y: auto;
+  padding: 2rem;
+  /* Adicione a animação aqui */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Defina a animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

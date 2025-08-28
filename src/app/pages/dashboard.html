@@ -1,0 +1,24 @@
+<div class="page-container">
+  <h1>Personagens em Destaque</h1>
+
+  <div *ngIf="isLoading" class="loading-indicator">
+    <p>Carregando personagens...</p>
+  </div>
+
+  <div *ngIf="!isLoading && featuredCharacters.length > 0" class="carousel-container">
+    <swiper-container #swiperContainer init="false">
+      <swiper-slide *ngFor="let char of featuredCharacters">
+        <div class="card" (click)="viewCharacter(char.id)">
+          <img [src]="char.image" [alt]="char.name">
+          <div class="card-content">
+            <h3>{{ char.name }}</h3>
+            <p>
+              <span class="status-indicator" [class]="char.status.toLowerCase()"></span>
+              {{ char.status }} - {{ char.species }}
+            </p>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+</div>

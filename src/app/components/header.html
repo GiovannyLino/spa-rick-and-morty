@@ -1,0 +1,43 @@
+<header class="header-container">
+  <div class="header-left">
+    <img src="https://i.pinimg.com/1200x/eb/78/7f/eb787faf44fff51e8eaec626b55c5e88.jpg" alt="Rick and Morty Logo" class="header-logo">
+  </div>
+
+  <div class="header-center" *ngIf="showSearchBar">
+    <div class="search-container">
+      <input 
+        #searchInput 
+        (keyup.enter)="onSearch(searchInput.value)" 
+        (focus)="isHistoryVisible = true"
+        (blur)="isHistoryVisible = false"
+        id="global-search" 
+        type="text" 
+        placeholder="Buscar personagem, episódio..."
+        autocomplete="off">
+
+      <div 
+        *ngIf="isHistoryVisible && (searchHistory$ | async) as history"
+        class="search-history-dropdown">
+        
+        <ng-container *ngIf="history.length > 0; else noHistory">
+          <ul>
+            <li *ngFor="let term of history" (mousedown)="onHistoryItemClick(term)">
+              <i class="fas fa-history"></i> {{ term }}
+            </li>
+          </ul>
+          <div class="history-footer">
+            <button (mousedown)="clearSearchHistory()">Limpar Histórico</button>
+          </div>
+        </ng-container>
+
+        <ng-template #noHistory>
+          <div class="no-history-item">Nenhum histórico de busca.</div>
+        </ng-template>
+      </div>
+    </div> 
+  </div>
+
+  <div class="header-right">
+    <span>{{ pageTitle$ | async }}</span> 
+  </div>
+</header>

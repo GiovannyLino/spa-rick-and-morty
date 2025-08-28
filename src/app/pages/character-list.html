@@ -1,0 +1,29 @@
+<div class="page-container">
+  <h1>Personagens</h1>
+  <div class="list-panel">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Espécie</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let char of characters" (click)="viewDetails(char.id)">
+          <td>
+            <div class="character-name-cell">
+              <img [src]="char.image" [alt]="char.name" class="character-avatar">
+              <span>{{ char.name }}</span>
+            </div>
+          </td>
+          <td>{{ char.species }}</td>
+          <td>{{ char.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isLoading" class="loading-indicator">
+      <p>Carregando mais...</p>
+    </div>
+  </div>
+</div>

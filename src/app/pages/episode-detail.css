@@ -1,0 +1,74 @@
+.episode-header {
+  margin-bottom: 1.5rem;
+}
+
+.episode-header h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #343A40;
+}
+
+.episode-header .episode-code {
+  color: #0075FF;
+}
+
+.episode-header p {
+  margin: 0;
+  color: #6C757D;
+}
+
+.detail-panel {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.detail-panel h3 {
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #E9ECEF;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #6C757D;
+}
+
+.characters-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.character-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  width: 100px; /* Largura fixa para cada item */
+}
+
+.character-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.character-item:hover .character-avatar {
+  transform: scale(1.05);
+}
+
+.character-item strong {
+  font-weight: 500;
+  color: #343A40;
+  font-size: 0.9rem;
+}
+
+.character-item span {
+  font-size: 0.8rem;
+  color: #6C757D;
+}

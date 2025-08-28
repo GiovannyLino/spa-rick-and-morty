@@ -1,0 +1,21 @@
+<div class="page-container" *ngIf="!isLoading && episode">
+  <div class="episode-header">
+    <h2><span class="episode-code">{{ episode.episode }}</span> {{ episode.name }}</h2>
+    <p>{{ episode.air_date }}</p>
+  </div>
+
+  <div class="detail-panel">
+    <h3>Personagens</h3>
+    <div class="characters-list">
+      <div class="character-item" *ngFor="let char of characters" (click)="viewCharacter(char.id)">
+        <img [src]="char.image" [alt]="char.name" class="character-avatar">
+        <strong>{{ char.name }}</strong>
+        <span>{{ char.species }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loading-indicator">
+  <p>Carregando...</p>
+</div>

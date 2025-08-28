@@ -1,0 +1,35 @@
+<div class="page-container">
+  <div *ngIf="isLoading" class="loading-indicator">
+    <p>Carregando...</p>
+  </div>
+
+  <div *ngIf="character && !isLoading">
+    <div class="detail-panel">
+      <div class="info-header">
+        <img [src]="character.image" [alt]="character.name" class="detail-avatar">
+        <div class="info-header-text">
+          <h2>{{ character.name }}</h2>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div><span>Status</span><strong>{{ character.status }}</strong></div>
+        <div><span>Espécie</span><strong>{{ character.species }}</strong></div>
+        <div><span>Tipo</span><strong>{{ character.type || 'N/A' }}</strong></div>
+        <div><span>Gênero</span><strong>{{ character.gender }}</strong></div>
+        <div><span>Origem</span><strong>{{ character.origin.name }}</strong></div>
+        <div><span>Localização</span><strong>{{ character.location.name }}</strong></div>
+      </div>
+    </div>
+
+    <div class="detail-panel episodes-panel" *ngIf="episodes.length > 0">
+      <h2>Episódios</h2>
+      <ul class="episodes-list">
+        <li *ngFor="let episode of episodes">
+          <span class="episode-code">{{ episode.episode }}</span>
+          <span class="episode-name">{{ episode.name }}</span>
+          <span class="episode-date">{{ episode.air_date }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

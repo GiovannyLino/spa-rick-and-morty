@@ -1,59 +1,73 @@
-# TesteTecnico
+# SPA Rick & Morty - Teste Frontend L5 Networks
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+Este projeto é uma Single-Page Application (SPA) desenvolvida em Angular 20, consumindo a [API REST do Rick & Morty](https://rickandmortyapi.com/). A aplicação foi criada como parte de um teste técnico, seguindo um layout proposto no Figma e implementando diversas funcionalidades modernas de frontend.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🎨 Layout
+
+O design da aplicação foi baseado no protótipo disponibilizado no Figma.
+
+* **[Link para o Figma](https://www.figma.com/design/ZpPA9efuVfldOnSPvwVjGb/L5-Networks---Teste-Frontend?node-id=0-1)**
+
+---
+
+## 🚀 Funcionalidades Implementadas
+
+* **Dashboard Dinâmico:** Página inicial com um carrossel de personagens em destaque.
+* **Listagem de Personagens e Episódios:** Páginas dedicadas para listar personagens e episódios da API.
+* **Paginação com Scroll Infinito:** Carregamento de mais itens conforme o usuário rola a página.
+* **Páginas de Detalhes:** Visualização detalhada de cada personagem ou episódio, com informações e entidades relacionadas.
+* **Busca Global:** Barra de pesquisa persistente no cabeçalho que busca em múltiplas categorias e exibe os resultados em uma página dedicada.
+* **Histórico de Busca:** O sistema salva e exibe as últimas buscas do usuário.
+* **Sistema de Login (Mock):** Página de login que protege o acesso ao conteúdo da aplicação. O estado de login persiste entre sessões.
+* **Página de Perfil Editável:** Uma página de perfil onde o usuário pode editar suas informações (nome, sobre, formação, experiência) e foto. Os dados são salvos localmente no navegador (`localStorage`).
+* **Roteamento e Navegação:** Sistema completo de rotas com "Route Guard" para proteger as páginas privadas.
+* **Layout Responsivo:** A aplicação se adapta a diferentes tamanhos de tela.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **[Angular 20](https://angular.io/)**: Framework principal para a construção da SPA.
+* **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática.
+* **[RxJS](https://rxjs.dev/)**: Para programação reativa e gerenciamento de chamadas assíncronas.
+* **[Swiper.js](https://swiperjs.com/)**: Biblioteca moderna para carrosséis e sliders.
+* **[Font Awesome](https://fontawesome.com/)**: Biblioteca de ícones.
+* **CSS3**: Para estilização, utilizando Flexbox e Grid Layout.
+
+---
+
+## ⚙️ Como Executar o Projeto Localmente
+
+Siga os passos abaixo para rodar a aplicação na sua máquina.
+
+**Pré-requisitos:**
+* [Node.js](https://nodejs.org/en/) (versão 18 ou superior)
+* [Angular CLI](https://angular.io/cli) (versão 20 ou superior)
 
 ```bash
+# 1. Clone o repositório
+git clone [https://docs.github.com/pt/repositories/creating-and-managing-repositories/quickstart-for-repositories](https://docs.github.com/pt/repositories/creating-and-managing-repositories/quickstart-for-repositories)
+
+# 2. Navegue para a pasta do projeto
+cd nome-do-projeto
+
+# 3. Instale as dependências
+npm install
+
+# 4. Inicie o servidor de desenvolvimento
 ng serve
+
+# 5. Abra seu navegador em http://localhost:4200/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**Credenciais de Login (Mock):**
+* **Email:** `user@test.com`
+* **Senha:** `password123`
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📄 Licença
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.

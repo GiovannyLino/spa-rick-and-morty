@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Adicione esta regra ao seu arquivo de estilos globais */
+body {
+  margin: 0;
+  /* Use 'Poppins' como fonte principal, com uma fonte de fallback */
+  font-family: 'Poppins', sans-serif; 
+  background-color: #F8F9FA;
+  color: #495057; /* Define uma cor de texto padrão mais suave */
+}

@@ -1,0 +1,40 @@
+<div class="page-container">
+  <h1>Resultados para: "{{ searchQuery }}"</h1>
+
+  <div *ngIf="isLoading" class="loading-indicator">
+    <p>Buscando...</p>
+  </div>
+
+  <div *ngIf="!isLoading">
+    <div class="results-panel" *ngIf="characterResults.length > 0">
+      <h2>Personagens Encontrados</h2>
+      <div class="cards-grid">
+        <div class="card" *ngFor="let char of characterResults" (click)="viewCharacter(char.id)">
+          <img [src]="char.image" [alt]="char.name">
+          <div class="card-content">
+            <h3>{{ char.name }}</h3>
+            <p><span class="status-indicator" [class]="char.status.toLowerCase()"></span>{{ char.status }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-panel" *ngIf="episodeResults.length > 0">
+      <h2>Episódios Encontrados</h2>
+      <table>
+        <tbody>
+          <tr *ngFor="let episode of episodeResults" (click)="viewEpisode(episode.id)">
+            <td><strong>{{ episode.episode }}</strong></td>
+            <td>{{ episode.name }}</td>
+            <td>{{ episode.air_date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="no-results" *ngIf="characterResults.length === 0 && episodeResults.length === 0">
+      <h2>Nenhum resultado encontrado.</h2>
+      <p>Tente pesquisar por outros termos.</p>
+    </div>
+  </div>
+</div>

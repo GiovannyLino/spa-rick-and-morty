@@ -1,0 +1,157 @@
+/* --- CONTAINER E TÍTULOS GERAIS --- */
+.profile-container {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.profile-container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f65ac;
+  margin-bottom: 1.5rem;
+}
+
+/* --- PAINÉIS E CARDS COM SOMBRA --- */
+.profile-panel,
+.info-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.profile-panel {
+  margin-bottom: 2.5rem;
+}
+
+.section-container {
+  margin-bottom: 2.5rem;
+}
+
+/* --- [NOVO] CABEÇALHOS DOS PAINÉIS E CARDS (COM BOTÕES) --- */
+.panel-header,
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.panel-header h3,
+.card-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* --- [NOVO] ESTILOS GERAIS PARA BOTÕES --- */
+.panel-header button,
+.form-actions button {
+  background: none;
+  border: 1px solid #ced4da;
+  color: #495057;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.panel-header button:hover,
+.form-actions button:hover {
+  background-color: #f1f3f5;
+}
+
+/* --- [NOVO] BOTÕES DE AÇÃO DENTRO DOS CARDS (EDITAR/EXCLUIR) --- */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-actions button {
+  border: none;
+  background: none;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  color: #0075FF;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.card-actions button.danger {
+  color: #dc3545;
+}
+
+/* --- [NOVO] ESTILOS PARA OS FORMULÁRIOS DE EDIÇÃO --- */
+.edit-form,
+.edit-form-card {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #495057;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.edit-form textarea,
+.edit-form-card input,
+.edit-form-card textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E9ECEF;
+}
+
+.edit-form-card .form-actions {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0.5rem;
+  justify-content: flex-end;
+}
+
+.form-actions button.primary {
+  background-color: #0075FF;
+  color: #ffffff;
+  border-color: #0075FF;
+}
+
+.form-actions button.primary:hover {
+  background-color: #005fcc;
+}
+
+
+/* --- GRID DE CARDS E CONTEÚDO (JÁ EXISTENTES) --- */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap: 1.5rem; }
+.info-card p { margin: 0 0 0.5rem 0; color: #495057; }
+.info-card span { font-size: 0.9rem; color: #6C757D; }
+.info-card .description { margin-top: 1rem; font-size: 0.9rem; line-height: 1.5; }
+.personal-info { display: flex; align-items: center; }
+.profile-avatar { width: 100px; height: 100px; border-radius: 50%; margin-right: 1.5rem; object-fit: cover; }
+.info-text h2 { margin: 0 0 0.25rem 0; font-size: 1.8rem; color: #212529; }
+.info-text p { margin: 0 0 0.75rem 0; color: #6C757D; }
+.social-links a { color: #495057; font-size: 1.5rem; text-decoration: none; margin-right: 1rem; transition: color 0.2s; }
+.social-links a:hover { color: #0075FF; }
+.about-section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #E9ECEF; }
+.about-section p { line-height: 1.6; color: #495057; margin: 0; }

@@ -1,0 +1,26 @@
+<div class="page-container">
+  <h1>Episódios</h1>
+  <div class="list-panel">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Temporada</th>
+          <th>Título</th>
+          <th>Lançamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let episode of episodes" (click)="viewDetails(episode.id)">
+          <td>{{ episode.episode }}</td>
+          <td>{{ getSeasonFromCode(episode.episode) }}</td>
+          <td>{{ episode.name }}</td>
+          <td>{{ episode.air_date }}</td>
+        </tr>
+      </tbody>
+    </table>
+     <div *ngIf="isLoading" class="loading-indicator">
+      <p>Carregando mais...</p>
+    </div>
+  </div>
+</div>
