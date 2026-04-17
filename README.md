@@ -1,4 +1,4 @@
-# SPA Rick & Morty - Teste Frontend L5 Networks
+# SPA Rick & Morty
 
 Este projeto é uma Single-Page Application (SPA) desenvolvida em Angular 20, consumindo a [API REST do Rick & Morty](https://rickandmortyapi.com/). A aplicação foi criada como parte de um teste técnico, seguindo um layout proposto no Figma e implementando diversas funcionalidades modernas de frontend.
 
